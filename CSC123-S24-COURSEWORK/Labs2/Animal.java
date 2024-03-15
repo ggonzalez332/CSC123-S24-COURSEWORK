@@ -2,9 +2,9 @@
 public class Animal {
 	String name;
 	int age;
-	int weight;
+	double weight;
 	
-	public Animal(String name, int age, int weight) {
+	public Animal(String name, int age, double weight) {
 		this.name = name;
 		this.age = age;
 		this.weight = weight;
@@ -22,15 +22,17 @@ public class Animal {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getWeight() {
+	public double getWeight() {
 		return weight;
 	}
-	public void setWeight(int weight) {
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 	public String makeSound() {
 		return "Some generic sound";
 	}
 	
-	
+	public String toString() {
+		return "Name:" + getName() +" Age:"+ getAge()+ " Weight:"+ getWeight();
+	}
 }
