@@ -9,26 +9,31 @@ public class DMV {
 	static SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 	
 	public DMV(String state) {
-		this.state = state;
+		DMV.state = state;
 		registration = new ArrayList<>();
 		citation = new ArrayList<>();
 	}
-	//add more parameters
-	public static void registerVehicle(Vehicle v,Owner o)throws ParseException, NoSuchElementException{
+	
+	public static void registerVehicle(int uniqueId, String startDate, String endDate, Vehicle v,String plate, Owner o)throws ParseException, DMVException{
+		for(Citation c : citation) {
+			if(c.getRegistration().getPlate().equals(plate)) {
+				if(!c.getStatus().equals("Paid")) {
+					throw new DMVException("Citation not paid a new registration cannot be made");
+				}
+				
+			}
+			
+		}
 		
-		Registration r = new Registration(0,null,null,v,null);
+		Registration r = new Registration(uniqueId,startDate,endDate,v,plate);
 		r.addOwner(o);
 		registration.add(r);
 	}
-	// add parameters
-	public void registerCitation(String plate, double amount) throws ParseException 
+	
+	public static void registerCitation(String date, int offenceCode, double amount, String status, Registration registration) throws ParseException 
 	{
-		if(r.getVehicle().getMake() == null ||  r.getVehicle().getModel() == null || r.getVehicle().getVin() == null 
-				||r.getVehicle().getMake().isEmpty() || r.getVehicle().getModel().isEmpty()|| r.getVehicle().getVin().isEmpty()) {
-			
-			throw new  NoSuchElementException("No Vehicle found  " + r.getVehicle());
-		}
-		Citation c = new Citation(null,0,0.0,null,r);
+
+		Citation c = new Citation(date, offenceCode , amount , status, registration);
 		citation.add(c);
 	}
 	public void listRegistrations() {
@@ -39,14 +44,39 @@ public class DMV {
 	// only list registration for a certain car one owner can have multiple regostrations
 	public void listRegistrations(String plate) {
 		for(Registration r : registration) {
-			System.out.println(r);
+			if(r.getPlate().equals(plate)) {
+				System.out.println(r);
+			}
+			
 		}
+	}
+		public void listRegistrations(Vehicle v) {
+			for(Registration r : registration) {
+				if(r.getVehicle().equals(v)) {
+					System.out.println(r);
+				}
+				
+			}
 	}
 	public void listCitations() {
 		for(Citation c : citation) {
 			System.out.println(c);
 		}
 	}
+		public void listCitations(String plate) {
+			for(Citation c : citation) {
+				if(c.getRegistration().getPlate().equals(plate)) {
+					System.out.println(c);
+					}
+				}	
+			}
+		public void listCitations(Vehicle v) {
+			for(Citation c : citation) {
+				if(c.getRegistration().getVehicle().equals(v)) {
+					System.out.println(c);
+				}
+			}
+			}
 	public Registration searchRegistrationByPlate(String p) throws NoSuchElementException {
 		for(Registration r : registration) {
 			if(r.getPlate().equals(p)) {

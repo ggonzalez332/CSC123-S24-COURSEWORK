@@ -12,8 +12,25 @@ public class Vehicle {
 	private String color;
 	private int numberOfDoors;
 	
-	public Vehicle(String vin, String dateOfMfg, String make, String model, String color, int numberOfDoors) throws ParseException {
-	
+	public Vehicle(String vin, String dateOfMfg, String make, String model, String color, int numberOfDoors) throws ParseException, DMVException {
+		if(vin == null|| vin.isEmpty() ) {
+			throw new DMVException("Vin is mising");
+		}
+		if(dateOfMfg == null|| dateOfMfg.isEmpty() ) {
+			throw new DMVException("Date of manufacturing is mising");
+		}
+		if(make == null|| make.isEmpty() ) {
+			throw new DMVException("Make is mising");
+		}
+		if(model == null|| model.isEmpty() ) {
+			throw new DMVException("Model is mising");
+		}
+		if(color == null|| color.isEmpty() ) {
+			throw new DMVException("Color is mising");
+		}
+		if(numberOfDoors == 0 ) {
+			throw new DMVException("Number of doors is mising");
+		}
 		this.vin = vin;
 		this.dateOfMfg = sdf.parse(dateOfMfg);
 		this.make = make;
@@ -53,7 +70,18 @@ public class Vehicle {
 	public int getNumberOfDoors() {
 		return numberOfDoors;
 	}
-	
+	public boolean equals(Vehicle v) {
+        if (this == v) {
+            return true;
+        }
+        if (v == null || getClass() != v.getClass()) {
+            return false;
+        }
+        Vehicle other = (Vehicle)v;
+        return model.equals(other.model) &&
+                make.equals(other.make) &&
+                vin.equals(other.vin);
+    }
 	public String toString() {
 		return "Vin: "+ getVin()+ ", Date of Mfg: "+ getDateOfMfg()+", Make:"+ getMake() + ", Model:"+ getModel()
 		+ ", Number of Doors: "+ getNumberOfDoors();

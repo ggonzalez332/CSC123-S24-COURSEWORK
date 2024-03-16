@@ -9,14 +9,32 @@ public class Owner {
 	private String city;
 	private String state;
 	private String zip;
-	public Owner(String firstName, String lastName, String address, String city, String state, String zip) {
-	
+	public Owner(String firstName, String lastName, String address, String city, String state, String zip) throws DMVException {
+		if(firstName == null|| firstName.isEmpty() ) {
+			throw new DMVException("First Name is mising");
+		}
+		if(lastName == null|| lastName.isEmpty() ) {
+			throw new DMVException("Last Name is mising");
+		}
+		if(address == null|| address.isEmpty() ) {
+			throw new DMVException("Addresss is mising");
+		}
+		if(city == null|| city.isEmpty() ) {
+			throw new DMVException("City is mising");
+		}
+		if(state == null|| state.isEmpty() ) {
+			throw new DMVException("State is mising");
+		}
+		if(zip == null|| zip.isEmpty() ) {
+			throw new DMVException("Zip is mising");
+		}
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
+		
 	}
 	public String getFirstName() {
 		return firstName;

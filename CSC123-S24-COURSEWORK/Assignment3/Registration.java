@@ -54,8 +54,8 @@ public class Registration {
 	}
 	@Override
 	public String toString() {
-		return "uniqueId: " + uniqueId + ", startDate: " + startDate + ", endDate: "
-				+ endDate + ", owner: " + getOwner() + ", vehicle: " + vehicle + ", plate: " + plate;
+		return "Registration: " + "uniqueId| " + uniqueId + ", startDate| " + startDate + ", endDate| "
+				+ endDate + ", owner| " + getOwner() + ", vehicle| " + vehicle + ", plate| " + plate;
 	}
 	
 	
