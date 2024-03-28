@@ -1,7 +1,7 @@
 import java.io.*;
 public class MyFileTest {
 
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
 //		try {
@@ -14,8 +14,10 @@ public class MyFileTest {
 		File f = new File("C:\\Users\\rtaka\\hello.txt");
 		MyFile mf=new MyFile("C:\\Users\\rtaka\\hello.txt");
 		
-		System.out.println(mf);
+		//System.out.println(mf);
 		
+		MyScanner s = new MyScanner(f);
+		s.nextLine();
 		
 		
 	}
