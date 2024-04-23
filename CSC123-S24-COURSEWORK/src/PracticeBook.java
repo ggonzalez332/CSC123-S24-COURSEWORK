@@ -1,5 +1,5 @@
 
-public class Book {
+public class PracticeBook {
 
 private static String publishingCompany = "Pearson";
 private String ISBN;
@@ -7,7 +7,7 @@ private int  pages;
 private String author;
 private int amazonRank;
 
-public Book(String ISBN, int pages, String author){
+public PracticeBook(String ISBN, int pages, String author){
 	this.ISBN = ISBN;
 	this.pages = pages;
 	this.author = author;
@@ -15,7 +15,7 @@ public Book(String ISBN, int pages, String author){
 	
 }
 
-public Book(String ISBN, String author){
+public PracticeBook(String ISBN, String author){
 	this.ISBN = ISBN;
 	this.author = author;
 	publishingCompany = "Pearson";
@@ -41,12 +41,12 @@ public void setAmazonRank(int amazonRank) {
 	this.amazonRank = amazonRank;
 }
 
-public Book createClone(Book b) {
-	Book b1 = new Book(b.getISBN(), b.getNumberPages(),getAuthor() );
+public PracticeBook createClone(PracticeBook b) {
+	PracticeBook b1 = new PracticeBook(b.getISBN(), b.getNumberPages(),getAuthor() );
 		b1.setAmazonRank(b.getAmazonRank());
 		return b1;
 }
-public boolean equals(Book b) {
+public boolean equals(PracticeBook b) {
 	return ((this.pages == b.getNumberPages())&& (author.equals(b.getAuthor())) && (amazonRank == b.getAmazonRank()));
 		
 }
