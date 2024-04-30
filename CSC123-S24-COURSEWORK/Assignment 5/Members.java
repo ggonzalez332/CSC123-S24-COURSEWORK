@@ -1,41 +1,95 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Members {
-	String firstName;
-	String lastName;
-	SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YY");
-	Date dateOfBirth;
-	String city;
-	int zipCode;
-	int membershipNumber;
-	
-	public Members(String firstName, String lastName, String dateOfBirth, String city, int zipCode) throws ParseException {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dateOfBirth = sdf.parse(dateOfBirth);
-		this.city = city;
-		this.zipCode = zipCode;
-		membershipNumber = 0;
-	}
-	
-	public void setMembershipNumber(int num) {
-		membershipNumber = num;
-	}
-	
-	public static int getAge(String dayBorn) throws ParseException{
-		   
-	       Date birthDate = sdf.parse(dayBorn);
-	       Date currentDate = new Date();
+	    private String membershipNumber;
+	    private String firstName;
+	    private String lastName;
+	    private LocalDate dateOfBirth;
+	    private String city;
+	    private String zipCode;
+	    private boolean isChild;
+	    private String guardian;
 
-	       long diffInMilliseconds = currentDate.getTime() - birthDate.getTime();
-	       long ageInYears = diffInMilliseconds / (1000L * 60 * 60 * 24 * 365);
+	    public Members(String membershipNumber, String firstName, String lastName, LocalDate dateOfBirth, String city, String zipCode, boolean isChild, String guardian) {
+	        this.setMembershipNumber(membershipNumber);
+	        this.setFirstName(firstName);
+	        this.setLastName(lastName);
+	        this.dateOfBirth = dateOfBirth;
+	        this.city = city;
+	        this.zipCode = zipCode;
+	        this.setChild(isChild);
+	        this.guardian = guardian;
+	    }
 
-	       return (int) ageInYears;
+		public String getMembershipNumber() {
+			return membershipNumber;
+		}
+
+		public void setMembershipNumber(String membershipNumber) {
+			this.membershipNumber = membershipNumber;
+		}
+
+		public boolean isChild() {
+			return isChild;
+		}
+
+		public void setChild(boolean isChild) {
+			this.isChild = isChild;
+		}
+
+		public String getFirstName() {
+			return firstName;
+		}
+
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
+		}
+
+		public String getLastName() {
+			return lastName;
+		}
+
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+
+		public String getGuardian() {
+			return guardian;
+		}
+
+		public void setGuardian(String guardian) {
+			this.guardian = guardian;
+		}
+
+		public LocalDate getDateOfBirth() {
+			return dateOfBirth;
+		}
+
+		public void setDateOfBirth(LocalDate dateOfBirth) {
+			this.dateOfBirth = dateOfBirth;
+		}
+
+		public String getCity() {
+			return city;
+		}
+
+		public void setCity(String city) {
+			this.city = city;
+		}
+
+		public String getZipCode() {
+			return zipCode;
+		}
+
+		public void setZipCode(String zipCode) {
+			this.zipCode = zipCode;
+		}
+
+		@Override
+		public String toString() {
+			return "Members [membershipNumber=" + membershipNumber + ", firstName=" + firstName + ", lastName="
+					+ lastName + ", dateOfBirth=" + dateOfBirth + ", city=" + city + ", zipCode=" + zipCode
+					+ ", isChild=" + isChild + ", guardian=" + guardian + "]";
+		}
 		
-		
-	}
-
-	
 }
