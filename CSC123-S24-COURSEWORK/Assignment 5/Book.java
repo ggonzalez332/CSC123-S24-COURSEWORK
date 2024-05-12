@@ -1,6 +1,17 @@
 
 
 class Book extends Item {
+	private String author;
+    private String ISBN;
+    private int numberOfPages;
+
+    public Book(String referenceNumber, String title, boolean suitableForChildren, double replacementValue, String location, String author, String ISBN, int numberOfPages) {
+        super(referenceNumber, title, suitableForChildren, replacementValue, location);
+        this.author = author;
+        this.ISBN = ISBN;
+        this.numberOfPages = numberOfPages;
+        this.type = "Book";
+    }
 	    public String getAuthor() {
 		return author;
 	}
@@ -25,15 +36,5 @@ class Book extends Item {
 		this.numberOfPages = numberOfPages;
 	}
 
-		private String author;
-	    private String ISBN;
-	    private int numberOfPages;
-
-	    public Book(String referenceNumber, String title, boolean suitableForChildren, double replacementValue, String location, String author, String ISBN, int numberOfPages) {
-	        super(referenceNumber, title, suitableForChildren, replacementValue, location);
-	        this.author = author;
-	        this.ISBN = ISBN;
-	        this.numberOfPages = numberOfPages;
-	        this.type = "Book";
-	    }
+		
 	}
