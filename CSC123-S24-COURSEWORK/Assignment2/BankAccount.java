@@ -1,4 +1,4 @@
-// Gerber Gonzalez ggonzalez332@toromail.csudh.org
+// Gerber Gonzalez  ggonzalez332@toromail.csudh.org
 public class BankAccount {
     // Instance fields
     private String firstName;
