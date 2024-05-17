@@ -1,3 +1,4 @@
+// Gerber Gonzalez ggonzalez332@toromail.csudh.org
 import java.text.*;
 import java.util.*;
 
@@ -23,7 +24,7 @@ public class DMVTest {
 
             switch (choice) {
                 case 1:
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     System.out.println("Enter owner's first name:");
                     String fName = in.nextLine();
                     System.out.println("Enter owner's last name:");
@@ -50,13 +51,13 @@ public class DMVTest {
                     String color = in.nextLine();
                     System.out.println("Enter number of doors:");
                     int numOfDoors = in.nextInt();
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     
                     Vehicle vehicle1 = new Vehicle(vin, dateOfMfg, make, model, color, numOfDoors);
                     
                     System.out.println("Enter registration unique ID:");
                     int uniqueId = in.nextInt();
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     System.out.println("Enter registration start date (MM/dd/yyyy):");
                     String startDate = in.nextLine();
                     System.out.println("Enter registration end date (MM/dd/yyyy):");
@@ -68,19 +69,19 @@ public class DMVTest {
                     break;
 
                 case 2:
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     System.out.println("Enter citation date (MM/dd/yyyy):");
                     String cDate = in.nextLine();
                     System.out.println("Enter offence code:");
                     int offenceCode = in.nextInt();
                     System.out.println("Enter amount:");
                     double amount = in.nextDouble();
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     System.out.println("Enter status:");
                     String status = in.nextLine();
                     System.out.println("Enter registration unique ID for citation:");
                     int regId = in.nextInt();
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     Registration regForCitation = dmv.searchRegistrationByID(regId);
                     
                     dmv.registerCitation(cDate, offenceCode, amount, status, regForCitation);
@@ -95,14 +96,14 @@ public class DMVTest {
                     break;
 
                 case 5:
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     System.out.println("Enter vehicle license plate:");
                     String plateForReg = in.nextLine();
                     dmv.listRegistrations(plateForReg);
                     break;
 
                 case 6:
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     System.out.println("Enter owner's first name:");
                     String ownerFirstName = in.nextLine();
                     System.out.println("Enter owner's last name:");
@@ -116,14 +117,14 @@ public class DMVTest {
                     break;
 
                 case 7:
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     System.out.println("Enter vehicle license plate:");
                     String plateForCitation = in.nextLine();
                     dmv.listCitations(plateForCitation);
                     break;
 
                 case 8:
-                    in.nextLine(); // consume the newline character
+                    in.nextLine(); 
                     System.out.println("Enter owner's first name:");
                     String citOwnerFirstName = in.nextLine();
                     System.out.println("Enter owner's last name:");
