@@ -94,18 +94,18 @@ public class DMV {
 		 throw new NoSuchElementException("No registration found with unique id: " + id);
 	}
 	
-	public Registration searchRegistrationByOwner(Owner o) throws NoSuchElementException {
-		 for (Registration r : registration) {
-		        ArrayList<Owner> owners = r.getOwner();
-		        for (Owner owner : owners) {
-		            if (owner.getAddress().equals(o.getAddress()) && owner.getFirstName().equals(o.getFirstName())
-		            		&& owner.getLastName().equals(o.getLastName()) ) {
-		                return r;
-		            }
-		        }
-		    }
-		 throw new NoSuchElementException("No registration found with given owner: " + o);
-	}
+	 public Registration searchRegistrationByOwner(String firstName, String lastName) throws NoSuchElementException {
+	        for (Registration r : registration) {
+	            ArrayList<Owner> owners = r.getOwner();
+	            for (Owner owner : owners) {
+	                if (owner.getFirstName().equals(firstName) && owner.getLastName().equals(lastName)) {
+	                    return r;
+	                }
+	            }
+	        }
+	        throw new NoSuchElementException("No registration found with given owner: " + firstName + " " + lastName);
+	    }
+	
 	public Citation searchCitationbyRegistration(Registration r) throws NoSuchElementException {
 		 for (Citation c : citation) {
 		        if(c.getRegistration().getUniqueId() == r.getUniqueId() && c.getRegistration().getPlate() == r.getPlate()) {
