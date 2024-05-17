@@ -1,3 +1,4 @@
+// Gerber Gonzalez ggonzalez332@toromail.csudh.org
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,14 +12,14 @@ public abstract class AbstractCurrencyLoader {
 		type=type.toUpperCase().strip();
 		
 		if(type.equals("FILE")) {
-			return null;
+			return new FileHook();
 			
 		}
 		else if(type.equals("STRING")) {
 			return new StringHook();
 		}
 		else if (type.equals("NETWORK")){
-			return null;
+			return new NetHook();
 			
 		}
 		

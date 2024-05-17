@@ -1,10 +1,11 @@
+// Gerber Gonzalez ggonzalez332@toromail.csudh.org
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Scanner;
 
 public class CurrencyMain {
 
-	public static final String[] menuOptions = { "Sell Currency%n","Some other option%n", "Exit%n" };
+	public static final String[] menuOptions = { "Sell Currency%n", "Exit%n" };
 
 	public static final String MSG_PROMPT = "%nEnter choice: ";
 
@@ -28,8 +29,11 @@ public class CurrencyMain {
 		UIManager ui = new UIManager(this.in, this.out, menuOptions, MSG_PROMPT);
 		
 		//ASSIGNMENT 6
-		Currencies currencyBank = new Currencies("string");
-
+		
+		//Currencies currencyBank = new Currencies("file");
+		//Currencies currencyBank = new Currencies("string");
+		Currencies currencyBank = new Currencies("network");
+		
 		//END ASSIGNMENT 6
 		try {
 			while (true) {
